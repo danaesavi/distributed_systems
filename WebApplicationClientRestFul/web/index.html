@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function callRESTfulWebService(id, method, target, msg) {
+                var ajaxRequest;
+                if (window.XMLHttpRequest){
+                ajaxRequest=new XMLHttpRequest(); // IE7+, Firefox, Chrome, Opera, Safari
+                } else {
+                ajaxRequest=new ActiveXObject("Microsoft.XMLHTTP"); // IE6, IE5
+                }
+                ajaxRequest.onreadystatechange = function(){
+                if (ajaxRequest.readyState==4 &&
+                (ajaxRequest.status==200 || ajaxRequest.status==204)){
+                document.getElementById(id).innerHTML=ajaxRequest.responseText;
+                }
+                }
+                ajaxRequest.open(method, target, true /*async*/);
+                ajaxRequest.setRequestHeader("Content-Type", "text/html");
+                ajaxRequest.send(msg);
+ }
+            </script>
+    </head>
+    <body>
+        <div id="resultado">TODO write content</div>
+        
+        <input type="button" value="RestFul" onclick="callRESTfulWebService('resultado', 'GET', 'http://localhost:8080/PruebaRest/webresources/MyPath', 'mensaje')"/>
+        <BR>
+        <BR>
+        <BR>
+        <form action="http://localhost:8080/PruebaRest/webresources/MyPath" method="POST">
+            <input type="text" name="age" value="" />
+            <input type="text" name="name" value="juan" />
+            <input type="submit" value="ok" />
+            
+        
+        </form>
+    
+    
+    </body>
+</html>
