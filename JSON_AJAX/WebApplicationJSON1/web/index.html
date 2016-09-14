@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            
+        function loadNewContent(id, target) {
+        var ajaxRequest;
+        if (window.XMLHttpRequest){
+       ajaxRequest=new XMLHttpRequest(); // IE7+, Firefox, Chrome, Opera, Safari
+        } else {
+       ajaxRequest=new ActiveXObject("Microsoft.XMLHTTP"); // IE6, IE5
+        }
+        
+       ajaxRequest.onreadystatechange = function(){
+        if (ajaxRequest.readyState==4 && ajaxRequest.status==200){
+            var JSONObject = JSON.parse(ajaxRequest.responseText);
+            var txt = "field1: " + JSONObject.field1+
+            " field2: "+ JSONObject.field2+
+            " field3: "+ JSONObject.field3+
+            "<br />";
+            document.getElementById(id).innerHTML=txt;
+        }
+        }
+        }
+        
+          function loadNewContentArreglo(id, target) {
+            var ajaxRequest;
+            if (window.XMLHttpRequest){
+                ajaxRequest=new XMLHttpRequest(); // IE7+, Firefox, Chrome, Opera, Safari
+            } else {
+                ajaxRequest=new ActiveXObject("Microsoft.XMLHTTP"); // IE6, IE5
+            }
+
+            ajaxRequest.onreadystatechange = function(){
+                if (ajaxRequest.readyState==4 && ajaxRequest.status==200){
+                    var JSONObject = JSON.parse(ajaxRequest.responseText);
+                  
+                    var txt="";
+                    for (var i=0; i< JSONObject.addresses.length; i++) {
+                        
+                        txt= txt + "<p>"+JSONObject.addresses[i].id + " " + 
+                        JSONObject.addresses[i].name + "</p>";
+                    }
+             
+                                  
+                    document.getElementById(id).innerHTML=txt;
+                }
+            }
+
+            ajaxRequest.open("GET", target, true /*async*/);
+            ajaxRequest.send();
+   }
+
+        
+            </script>
+    
+   </head>
+    
+    <body>
+        <div id="pantalla">TODO write content</div>
+        <input type="button" value="Llamar Servlet" onclick="loadNewContentArreglo('pantalla', 'ServletJSON1')"  />
+    </body>
+</html>
