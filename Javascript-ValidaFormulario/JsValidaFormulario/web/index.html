@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Validacion JS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="funciones.js"> </script>
+    </head>
+    <body>
+        <div>Validacion de Formularios</div>
+        <HR>
+        
+        <form name="myFormB"
+            action="nextpage.jsp"
+            onsubmit="return validateFormB()"
+            method="post">
+        First name: <input type="text" name="fname"> <br />
+        <input type="submit" value="Submit">
+        </form>
+        <HR>
+        <!---->
+        
+        <form name="myForm" 
+              action="nextpage.jsp" 
+              onsubmit="return validateForm()"
+              method="post">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th><b>Descripcion</b></th>
+                        <th><b>Valor</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nombre: </td>
+                        <td><input type="text" name="nombre" value="" 
+                                   onkeydown="return validateName(this)" onkeyup="return validateName(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido Paterno: </td>
+                        <td><input type="text" name="apellido" value="laredo" 
+                                   onkeydown="return validateSurname(this)" onkeyup="return validateSurname(this)"/></td>
+                    </tr>
+                    <tr>
+                        <td>Correo electronico: </td>
+                        <td><input type="text" name="correo" value="trololo@trol.com" /></td>
+                    </tr>
+                    <tr>
+                        <td>Genero: </td>
+                        <td>
+                            Masculino<input type="radio" name="gen" value="masculino" />
+                            Femenino<input type="radio" name="gen" value="femenino" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Region del pais: </td>
+                        <td><select name="region">
+                                <option>Centro</option>
+                                <option>Bajio</option>
+                                <option>Norte</option>
+                                <option>Sur</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>Vacunado: </td>
+                        <td><input type="checkbox" name="vacunado" value="ON" /></td>
+                    </tr>
+                    <tr>
+                        <td>Comentarios adicionales: </td>
+                        <td><textarea name="comentarios" rows="4" cols="20">
+                            trol
+                            </textarea></td>
+                    </tr>
+                    <tr>
+                        <td><input type="reset" value="reset" name="reset" /></td>
+                        <td><input type="submit" value="enviar" name="enviar" /></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
+    </body>
+</html>
