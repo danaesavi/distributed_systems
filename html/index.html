@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Descripción</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Apellido paterno:</td>
+                    <td><input type="text" name="txtPaterno" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Apellido materno:</td>
+                    <td><input type="text" name="txtMaterno" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Género:</td>
+                    <td>
+                        <input type="radio" name="genero" value="Hombre" />
+                        <input type="radio" name="genero" value="Mujer" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Región del pais:</td>
+                    <td><select name="ddlRegion">
+                            <option>Norte</option>
+                            <option>Sur</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>¿Tiene todas las vacunas?</td>
+                    <td><input type="checkbox" name="chkVacunas" value="ON" /></td>
+                </tr>
+                <tr>
+                    <td>Comentarios adicionales: </td>
+                    <td>
+                        <textarea name="txtComentarios" rows="5" cols="10">
+                        </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Foto: </td>
+                    <td><img src="Imagenes/Penguins.jpg" width="500" height="500" alt="Penguins"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tres países donde me gustaría vivir: </td>
+                    <td><ol type="A">
+                            <li><input type="text" name="" value="" /></li>
+                            <li><input type="text" name="" value="" /></li>
+                            <li><input type="text" name="" value="" /></li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mi sitio web favorito es:</td>
+                    <td><a href="http://www.bloomberg.com">El mejor sitio</a></td>
+                </tr>
+                <tr>
+                    <td><input type="reset" value="Limpiar" name="btnLimpiar" /></td>
+                    <td><input type="submit" value="Enviar" name="btnEnviar" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>
+
