@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function callRESTfulWebService(id, method, target, msg) {
+                var ajaxRequest;
+                if (window.XMLHttpRequest){
+                ajaxRequest=new XMLHttpRequest(); // IE7+, Firefox, Chrome, Opera, Safari
+                } else {
+                ajaxRequest=new ActiveXObject("Microsoft.XMLHTTP"); // IE6, IE5
+                }
+                ajaxRequest.onreadystatechange = function(){
+                if (ajaxRequest.readyState==4 &&
+                (ajaxRequest.status==200 || ajaxRequest.status==204)){
+                document.getElementById(id).innerHTML=ajaxRequest.responseText;
+                }
+                }
+                ajaxRequest.open(method, target+"?cant="+document.getElementById("cant").value+"&convert_to="+document.getElementById("convert_to").value+"&base="+document.getElementById("base").value, true /*async*/);
+                ajaxRequest.setRequestHeader("Content-Type", "text/html");
+                ajaxRequest.send(msg);
+            }
+        </script>
+        
+    </head>
+    <body>
+      
+        <div>
+            <table border="1" cellpadding="1">
+                <thead>
+                    <tr>
+                        <th>Currency I have</th>
+                        <th> Amount</th>
+                        <th> Currency I want</th>
+                        <th> Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <select name="base" id="base">
+                                <option>US Dollar</option>
+                                <option>Mexican Peso</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input id="cant" type="text" name="cant" value="0" onkeyup="callRESTfulWebService('resultado', 'GET', 'http://localhost:8080/WebApplication_ClienteSoap/webresources/myPath', 'mensaje')" />
+                        </td>
+                        <td>
+                            <select id="convert_to" name="convert_to" onchange="callRESTfulWebService('resultado', 'GET', 'http://localhost:8080/WebApplication_ClienteSoap/webresources/myPath', 'mensaje')">
+                                <option>British Pound</option>
+                                <option>Mexican Peso</option>
+                                <option>Canadian Dollar</option>
+                                <option>US Dollar</option>
+                            </select>
+                        </td>
+                        <td>
+                            <div id="resultado"/></div>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+
+        
+        </div>
+    </body>
+</html>
